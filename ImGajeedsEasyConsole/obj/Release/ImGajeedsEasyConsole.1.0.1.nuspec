@@ -6,6 +6,7 @@
     <title>EasyConsole</title>
     <authors>ImGajeed</authors>
     <licenseUrl>https://github.com/ImGajeed76/EasyConsole/blob/master/ImGajeedsEasyConsole/license.txt</licenseUrl>
+    <readme>https://github.com/ImGajeed76/EasyConsole/blob/master/README.md</readme>
     <projectUrl>https://github.com/ImGajeed76/EasyConsole</projectUrl>
     <description>A package, that allows developers to make fast and easy console apps.</description>
     <repository type="git" url="https://github.com/ImGajeed76/EasyConsole" />

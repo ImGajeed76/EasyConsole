@@ -96,8 +96,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Konscious.Security.Cryptography.Argon2 >= 1.3.0",
-      "README.md"
+      "Konscious.Security.Cryptography.Argon2 >= 1.3.0"
     ]
   },
   "packageFolders": {
@@ -140,10 +139,6 @@
           "Konscious.Security.Cryptography.Argon2": {
             "target": "Package",
             "version": "[1.3.0, )"
-          },
-          "README.md": {
-            "target": "Package",
-            "version": "(, )"
           }
         },
         "imports": [
@@ -164,26 +159,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1604",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Project dependency README.md does not contain an inclusive lower bound. Include a lower bound in the dependency version to ensure consistent restore results.",
-      "libraryId": "README.md",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v6.0"
-      ]
-    },
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Unable to find package README.md. No packages exist with this id in source(s): nuget.org",
-      "libraryId": "README.md",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

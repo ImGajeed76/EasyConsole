@@ -1,32 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "o1D2j6TLCgFKKU5HyvMczVuOWzIRZuvKvTouOrQc8N3K8z/WnZDi3J04wgjR7tS/x3odckHWDjQgG2r6ILQLnw==",
-  "success": false,
+  "dgSpecHash": "Qsut/I47NLhaYxcm2ouLS1AdBUiqhIsQkcqREmXZHwfa2cffNCAn1w1NAbJseDJe54boclif3iarq8s1PJsMKw==",
+  "success": true,
   "projectFilePath": "C:\\Users\\76img\\RiderProjects\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\76img\\.nuget\\packages\\konscious.security.cryptography.argon2\\1.3.0\\konscious.security.cryptography.argon2.1.3.0.nupkg.sha512",
     "C:\\Users\\76img\\.nuget\\packages\\konscious.security.cryptography.blake2\\1.1.0\\konscious.security.cryptography.blake2.1.1.0.nupkg.sha512",
     "C:\\Users\\76img\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1604",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Project dependency README.md does not contain an inclusive lower bound. Include a lower bound in the dependency version to ensure consistent restore results.",
-      "libraryId": "README.md",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v6.0"
-      ]
-    },
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Unable to find package README.md. No packages exist with this id in source(s): nuget.org",
-      "libraryId": "README.md",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }
