@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ImGajeedsEasyConsole</id>
+    <version>1.0.0</version>
+    <title>EasyConsole</title>
+    <authors>ImGajeed</authors>
+    <projectUrl>https://github.com/ImGajeed76/EasyConsole</projectUrl>
+    <description>A package, that allows developers to make fast and easy console apps.</description>
+    <repository url="https://github.com/ImGajeed76/EasyConsole" />
+    <dependencies>
+      <group targetFramework="net6.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\bin\Release\net6.0\ImGajeedsEasyConsole.dll" target="lib\net6.0\ImGajeedsEasyConsole.dll" />
+  </files>
+</package>

@@ -1,0 +1,12 @@
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\bin\Release\net6.0\ImGajeedsEasyConsole.deps.json
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\bin\Release\net6.0\ImGajeedsEasyConsole.dll
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\bin\Release\net6.0\ImGajeedsEasyConsole.pdb
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net6.0\ImGajeedsEasyConsole.csproj.AssemblyReference.cache
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net6.0\ImGajeedsEasyConsole.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net6.0\ImGajeedsEasyConsole.AssemblyInfoInputs.cache
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net6.0\ImGajeedsEasyConsole.AssemblyInfo.cs
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net6.0\ImGajeedsEasyConsole.csproj.CoreCompileInputs.cache
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net6.0\ImGajeedsEasyConsole.dll
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net6.0\refint\ImGajeedsEasyConsole.dll
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net6.0\ImGajeedsEasyConsole.pdb
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net6.0\ref\ImGajeedsEasyConsole.dll
