@@ -1,5 +1,8 @@
 # EasyConsole
 
+### Project on NuGet:
+[ImGajeedsEasyConsole](https://www.nuget.org/packages/ImGajeedsEasyConsole)
+
 ### ToDo:
 
 ```
