@@ -262,6 +262,10 @@ Width this function you can get the BufferHeight.
 var height = Console.BufferHeight();
 ```
 
+## License
+
+This project has a MIT License: [license](https://github.com/ImGajeed76/EasyConsole/blob/master/ImGajeedsEasyConsole/license.txt)
+
 ## Contact
 
 If you have any question please write to me on discord because im not that often on github.

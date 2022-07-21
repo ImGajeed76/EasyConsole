@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\76img\\RiderProjects\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\76img\\RiderProjects\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole.csproj",
         "projectName": "ImGajeedsEasyConsole",
@@ -41,6 +41,10 @@
             "Konscious.Security.Cryptography.Argon2": {
               "target": "Package",
               "version": "[1.3.0, )"
+            },
+            "docs\\README.md": {
+              "target": "Package",
+              "version": "(, )"
             }
           },
           "imports": [
