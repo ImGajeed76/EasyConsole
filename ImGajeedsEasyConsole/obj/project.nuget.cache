@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0AMvgNIFBC+AqzaJJYY7+1qDwZSiqqezp3zANpsIeYAo/wiCUJ7zWkS2/cmnbxzA99JBzp+O5IXWN+pfbbKbAg==",
+  "dgSpecHash": "o1D2j6TLCgFKKU5HyvMczVuOWzIRZuvKvTouOrQc8N3K8z/WnZDi3J04wgjR7tS/x3odckHWDjQgG2r6ILQLnw==",
   "success": false,
   "projectFilePath": "C:\\Users\\76img\\RiderProjects\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole.csproj",
   "expectedPackageFiles": [
@@ -13,8 +13,8 @@
       "code": "NU1604",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Project dependency docs\\README.md does not contain an inclusive lower bound. Include a lower bound in the dependency version to ensure consistent restore results.",
-      "libraryId": "docs\\README.md",
+      "message": "Project dependency README.md does not contain an inclusive lower bound. Include a lower bound in the dependency version to ensure consistent restore results.",
+      "libraryId": "README.md",
       "targetGraphs": [
         ".NETCoreApp,Version=v6.0"
       ]
@@ -22,8 +22,8 @@
     {
       "code": "NU1101",
       "level": "Error",
-      "message": "Unable to find package docs\\README.md. No packages exist with this id in source(s): nuget.org",
-      "libraryId": "docs\\README.md",
+      "message": "Unable to find package README.md. No packages exist with this id in source(s): nuget.org",
+      "libraryId": "README.md",
       "targetGraphs": [
         "net6.0"
       ]
