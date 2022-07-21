@@ -534,7 +534,7 @@ namespace ImGajeedsEasyConsole.Components
 
             if (showMessage)
             {
-                Write(" (press any enter to continue)", color);
+                Write(" (press enter to continue)", color);
             }
 
             ConsoleKey key;
