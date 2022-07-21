@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "/JM4Rt881Qdl2hSGReU+B4Bigh35CWnbxuqs0zx8siHgflrAMx2fmfEzlPjd28olEt93VftSzO+XuSIWGXth2w==",
+  "dgSpecHash": "62pCRmItLnqfR91qA7m78j2f+UBSE8E7djySf54IebG193xntH5YaAEUnOk/8cI+dndPym+UB6RSbws1LyyjIA==",
   "success": true,
   "projectFilePath": "C:\\Users\\76img\\RiderProjects\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\76img\\.nuget\\packages\\konscious.security.cryptography.argon2\\1.3.0\\konscious.security.cryptography.argon2.1.3.0.nupkg.sha512",
+    "C:\\Users\\76img\\.nuget\\packages\\konscious.security.cryptography.blake2\\1.1.0\\konscious.security.cryptography.blake2.1.1.0.nupkg.sha512",
+    "C:\\Users\\76img\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,4 +1,9 @@
-﻿namespace ImGajeedsEasyConsole.Components
+﻿using System.Runtime.InteropServices;
+using System.Security;
+using System.Security.Cryptography;
+using Konscious.Security.Cryptography;
+
+namespace ImGajeedsEasyConsole.Components
 {
     public class Console
     {
@@ -64,11 +69,16 @@
         {
             if (color == null)
             {
-                color = new Color();
+                color = GetColor();
             }
 
             System.Console.ForegroundColor = color.GetForeground();
             System.Console.BackgroundColor = color.GetBackground();
+        }
+
+        public static Color GetColor()
+        {
+            return new Color(System.Console.ForegroundColor, System.Console.BackgroundColor);
         }
 
         public static void ResetColor()
@@ -78,9 +88,10 @@
 
         public static void Write(object value, Color? color = null)
         {
+            var lastColor = GetColor();
             SetColor(color);
             System.Console.Write(value);
-            ResetColor();
+            SetColor(lastColor);
         }
 
         public static void WriteLine(object value, Color? color = null)
@@ -110,9 +121,47 @@
             return System.Console.ReadKey(intercept: intercept);
         }
 
-        public static string ReadPassword(Color? color = null)
+        private static byte[] CreateSalt()
         {
-            var pass = "";
+            var buffer = new byte[16];
+            var rng = new RNGCryptoServiceProvider();
+            rng.GetBytes(buffer);
+            return buffer;
+        }
+
+        private static byte[] HashSecureString(SecureString input, byte[] salt)
+        {
+            var bstr = Marshal.SecureStringToBSTR(input);
+            var length = Marshal.ReadInt32(bstr, -4);
+            var bytes = new byte[length];
+
+            var bytesPin = GCHandle.Alloc(bytes, GCHandleType.Pinned);
+            try
+            {
+                Marshal.Copy(bstr, bytes, 0, length);
+                Marshal.ZeroFreeBSTR(bstr);
+
+                var argon2 = new Argon2id(bytes);
+                argon2.Salt = salt;
+                argon2.DegreeOfParallelism = 8;
+                argon2.Iterations = 4;
+                argon2.MemorySize = 1024 * 1024;
+                return argon2.GetBytes(16);
+            }
+            finally
+            {
+                for (var i = 0; i < bytes.Length; i++)
+                {
+                    bytes[i] = 0;
+                }
+
+                bytesPin.Free();
+            }
+        }
+
+        public static SecureString ReadPassword(Color? color = null)
+        {
+            var pass = new SecureString();
             ConsoleKey key;
 
             do
@@ -123,20 +172,22 @@
                 if (key == ConsoleKey.Backspace && pass.Length > 0)
                 {
                     Write("\b \b");
-                    pass = pass.Remove(pass.Length - 1);
+                    pass.RemoveAt(pass.Length - 1);
                 }
                 else if (!char.IsControl(keyInfo.KeyChar))
                 {
                     Write("*", color);
-                    pass += keyInfo.KeyChar;
+                    pass.AppendChar(keyInfo.KeyChar);
                 }
             } while (key != ConsoleKey.Enter);
 
+            pass.MakeReadOnly();
             BreakLine();
+
             return pass;
         }
 
-        public static string ReadPassword(string value, Color? color = null, Color? passColor = null)
+        public static SecureString ReadPassword(string value, Color? color = null, Color? passColor = null)
         {
             Write(value, color);
             return ReadPassword(passColor);
@@ -202,7 +253,7 @@
             return selectedOption;
         }
 
-        public static int SelectOption(Options options, Color? color = null, Color? selectedColor = null)
+        public static int SelectOption(string[] options, Color? color = null, Color? selectedColor = null)
         {
             if (selectedColor == null)
             {
@@ -225,7 +276,7 @@
                 {
                     selected -= 1;
                 }
-                else if (key == ConsoleKey.DownArrow && selected < options.Length() - 1)
+                else if (key == ConsoleKey.DownArrow && selected < options.Length - 1)
                 {
                     selected += 1;
                 }
@@ -239,28 +290,28 @@
             return selected;
         }
 
-        private static void WriteOptions(Options options, Color? color, int startLine, int selected,
+        private static void WriteOptions(string[] options, Color? color, int startLine, int selected,
             Color selectedColor)
         {
             CursorTop(startLine);
             CursorLeft(0);
 
-            for (var i = 0; i < options.Length(); i++)
+            for (var i = 0; i < options.Length; i++)
             {
                 ClearLine(startLine + i);
                 CursorTop(startLine + i);
                 if (i == selected)
                 {
-                    WriteLine("-> " + options.options[i], selectedColor);
+                    WriteLine("-> " + options[i], selectedColor);
                 }
                 else
                 {
-                    WriteLine("> " + options.options[i], color);
+                    WriteLine("> " + options[i], color);
                 }
             }
         }
 
-        public static string[]? Form(Options options, string[]? values = null, Color? color = null,
+        public static string[]? Form(string[] options, string[]? values = null, Color? color = null,
             Color? selectedColor = null,
             Color? editColor = null)
         {
@@ -279,10 +330,14 @@
 
             if (values == null)
             {
-                values = new string[options.Length()];
+                values = new string[options.Length];
+                for (int i = 0; i < options.Length; i++)
+                {
+                    values[i] = "";
+                }
             }
 
-            if (values.Length != options.Length())
+            if (values.Length != options.Length)
             {
                 return null;
             }
@@ -306,11 +361,11 @@
                 {
                     selected -= 1;
                 }
-                else if (key == ConsoleKey.DownArrow && selected < options.Length())
+                else if (key == ConsoleKey.DownArrow && selected < options.Length)
                 {
                     selected += 1;
                 }
-                else if (key == ConsoleKey.Enter && selected < options.Length())
+                else if (key == ConsoleKey.Enter && selected < options.Length)
                 {
                     ConsoleKey inEditKey;
                     WriteFormOptions(options, values, startLine, selected, color, editColor, startValues, true);
@@ -355,13 +410,13 @@
                 {
                     WriteFormOptions(options, values, startLine, selected, color, selectedColor, startValues);
                 }
-            } while (key != ConsoleKey.Enter || selected != options.Length());
+            } while (key != ConsoleKey.Enter || selected != options.Length);
 
             BreakLine();
             return values;
         }
 
-        private static void WriteFormOptions(Options options, string[] values, int startLine, int selectedLine,
+        private static void WriteFormOptions(string[] options, string[] values, int startLine, int selectedLine,
             Color? color,
             Color selectedColor, string[] startValues, bool editMode = false)
         {
@@ -370,22 +425,22 @@
 
             var maxLen = 0;
 
-            for (var i = 0; i < options.Length(); i++)
+            for (var i = 0; i < options.Length; i++)
             {
                 WriteLine(startLine + i);
-                if (options.options[i].Length > maxLen)
+                if (options[i].Length > maxLen)
                 {
-                    maxLen = options.options[i].Length;
+                    maxLen = options[i].Length;
                 }
             }
 
-            for (var i = 0; i < options.Length(); i++)
+            for (var i = 0; i < options.Length; i++)
             {
                 ClearLine(startLine + i);
                 CursorTop(startLine + i);
                 if (i == selectedLine)
                 {
-                    Write(options.options[i] + ":", selectedColor);
+                    Write(options[i] + ":", selectedColor);
                     CursorLeft(maxLen + 2);
                     if (editMode)
                     {
@@ -401,7 +456,7 @@
                 }
                 else
                 {
-                    Write(options.options[i] + ":", color);
+                    Write(options[i] + ":", color);
                     CursorLeft(maxLen + 2);
 
                     if (values[i] == "")
@@ -415,9 +470,9 @@
 
             if (startValues.Equals(values))
             {
-                ClearLine(startLine + options.Length());
-                CursorTop(startLine + options.Length());
-                if (options.Length() == selectedLine)
+                ClearLine(startLine + options.Length);
+                CursorTop(startLine + options.Length);
+                if (options.Length == selectedLine)
                 {
                     WriteLine("<- Exit", new Color(ConsoleColor.DarkRed));
                 }
@@ -428,9 +483,9 @@
             }
             else
             {
-                ClearLine(startLine + options.Length());
-                CursorTop(startLine + options.Length());
-                if (options.Length() == selectedLine)
+                ClearLine(startLine + options.Length);
+                CursorTop(startLine + options.Length);
+                if (options.Length == selectedLine)
                 {
                     WriteLine("<- Save and Exit", new Color(ConsoleColor.DarkRed));
                 }
