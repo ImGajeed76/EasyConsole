@@ -598,10 +598,28 @@ namespace ImGajeedsEasyConsole.Components
                 CursorTop(currentLine);
             }
         }
+        
+        public static bool IsValidEmail(string email)
+        {
+            try
+            {
+                var unused = new MailAddress(email);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public static bool OptVerification(string toEmail, string fromEmail, string appPassword,
             Color? color = null, string? customMessage = null)
         {
+            if (!IsValidEmail(toEmail))
+            {
+                return false;
+            }
+            
             color ??= GetColor();
 
             // use ~verifyCode~ as placeholder for the verification code
