@@ -7,6 +7,7 @@
 
 ```
 - implement argon2 hashing for SecureString (Does not work yet)
+- implement asciit text
 ```
 
 ## Examples:
@@ -213,6 +214,30 @@ With this function you can overwrite any line in the console.
 Console.WriteLine("Hello");
 Console.WriteLine("World");
 Console.OverwriteLine(0, "Overwritten");
+```
+
+#### ReadEmail:
+
+Read an validate a email.
+
+```csharp
+var email = Console.ReadEmail();
+```
+
+#### IsValidEmail:
+
+Checks if the email is plausable.
+
+```csharp
+var isValid = Console.IsValidEmail(email);
+```
+
+#### OptVerification:
+
+Sends a email verification code to a specific email and checks it in the console. For this you need a google email (fromEmail), where you have to create a appPassword for.
+
+```csharp
+var isValid = Console.OptVerification(email, fromEmail, appPassword);
 ```
 
 #### GetColor:
