@@ -1,11 +1,14 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Collections;
+using System.Net;
+using System.Net.Mail;
+using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
 using Konscious.Security.Cryptography;
 
 namespace ImGajeedsEasyConsole.Components
 {
-    public class Console
+    public static class Console
     {
         public static int CursorTop()
         {
@@ -67,10 +70,7 @@ namespace ImGajeedsEasyConsole.Components
 
         public static void SetColor(Color? color)
         {
-            if (color == null)
-            {
-                color = GetColor();
-            }
+            color ??= GetColor();
 
             System.Console.ForegroundColor = color.GetForeground();
             System.Console.BackgroundColor = color.GetBackground();
@@ -255,10 +255,7 @@ namespace ImGajeedsEasyConsole.Components
 
         public static int SelectOption(string[] options, Color? color = null, Color? selectedColor = null)
         {
-            if (selectedColor == null)
-            {
-                selectedColor = new Color(ConsoleColor.DarkYellow);
-            }
+            selectedColor ??= new Color(ConsoleColor.DarkYellow);
 
             var startLine = CursorTop();
             var selected = 0;
@@ -315,15 +312,9 @@ namespace ImGajeedsEasyConsole.Components
             Color? selectedColor = null,
             Color? editColor = null)
         {
-            if (selectedColor == null)
-            {
-                selectedColor = new Color(ConsoleColor.DarkGreen);
-            }
+            selectedColor ??= new Color(ConsoleColor.DarkGreen);
 
-            if (editColor == null)
-            {
-                editColor = new Color(ConsoleColor.DarkYellow);
-            }
+            editColor ??= new Color(ConsoleColor.DarkYellow);
 
             var startLine = CursorTop();
             var selected = 0;
@@ -331,7 +322,7 @@ namespace ImGajeedsEasyConsole.Components
             if (values == null)
             {
                 values = new string[options.Length];
-                for (int i = 0; i < options.Length; i++)
+                for (var i = 0; i < options.Length; i++)
                 {
                     values[i] = "";
                 }
@@ -416,16 +407,17 @@ namespace ImGajeedsEasyConsole.Components
             return values;
         }
 
-        private static void WriteFormOptions(string[] options, string[] values, int startLine, int selectedLine,
+        private static void WriteFormOptions(IReadOnlyList<string> options, IReadOnlyList<string> values, int startLine,
+            int selectedLine,
             Color? color,
-            Color selectedColor, string[] startValues, bool editMode = false)
+            Color selectedColor, IEnumerable startValues, bool editMode = false)
         {
             CursorTop(startLine);
             CursorLeft(0);
 
             var maxLen = 0;
 
-            for (var i = 0; i < options.Length; i++)
+            for (var i = 0; i < options.Count; i++)
             {
                 WriteLine(startLine + i);
                 if (options[i].Length > maxLen)
@@ -434,7 +426,7 @@ namespace ImGajeedsEasyConsole.Components
                 }
             }
 
-            for (var i = 0; i < options.Length; i++)
+            for (var i = 0; i < options.Count; i++)
             {
                 ClearLine(startLine + i);
                 CursorTop(startLine + i);
@@ -470,29 +462,21 @@ namespace ImGajeedsEasyConsole.Components
 
             if (startValues.Equals(values))
             {
-                ClearLine(startLine + options.Length);
-                CursorTop(startLine + options.Length);
-                if (options.Length == selectedLine)
-                {
-                    WriteLine("<- Exit", new Color(ConsoleColor.DarkRed));
-                }
-                else
-                {
-                    WriteLine("<- Exit", new Color(ConsoleColor.DarkGray));
-                }
+                ClearLine(startLine + options.Count);
+                CursorTop(startLine + options.Count);
+                WriteLine("<- Exit",
+                    options.Count == selectedLine
+                        ? new Color(ConsoleColor.DarkRed)
+                        : new Color(ConsoleColor.DarkGray));
             }
             else
             {
-                ClearLine(startLine + options.Length);
-                CursorTop(startLine + options.Length);
-                if (options.Length == selectedLine)
-                {
-                    WriteLine("<- Save and Exit", new Color(ConsoleColor.DarkRed));
-                }
-                else
-                {
-                    WriteLine("<- Save and Exit", new Color(ConsoleColor.DarkGray));
-                }
+                ClearLine(startLine + options.Count);
+                CursorTop(startLine + options.Count);
+                WriteLine("<- Save and Exit",
+                    options.Count == selectedLine
+                        ? new Color(ConsoleColor.DarkRed)
+                        : new Color(ConsoleColor.DarkGray));
             }
         }
 
@@ -511,10 +495,7 @@ namespace ImGajeedsEasyConsole.Components
 
         public static void AwaitAnyKey(bool showMessage = true, Color? color = null)
         {
-            if (color == null)
-            {
-                color = new Color(ConsoleColor.DarkGray);
-            }
+            color ??= new Color(ConsoleColor.DarkGray);
 
             if (showMessage)
             {
@@ -527,10 +508,7 @@ namespace ImGajeedsEasyConsole.Components
 
         public static void AwaitEnter(bool showMessage = true, Color? color = null)
         {
-            if (color == null)
-            {
-                color = new Color(ConsoleColor.DarkGray);
-            }
+            color ??= new Color(ConsoleColor.DarkGray);
 
             if (showMessage)
             {
@@ -545,6 +523,114 @@ namespace ImGajeedsEasyConsole.Components
             } while (key != ConsoleKey.Enter);
 
             BreakLine();
+        }
+
+        public static string? ReadEmail(string value = "", Color? color = null, Color? validColor = null,
+            Color? invalidColor = null)
+        {
+            while (true)
+            {
+                color ??= GetColor();
+                validColor ??= new Color(ConsoleColor.Green);
+                invalidColor ??= new Color(ConsoleColor.DarkYellow);
+
+                var email = "";
+                var isValid = false;
+
+                var currentLine = CursorTop();
+
+                ClearLine(currentLine);
+                CursorTop(currentLine);
+                Write(value, color);
+                Write(email, isValid ? validColor : invalidColor);
+
+                ConsoleKey key;
+
+                do
+                {
+                    var keyInfo = ReadKey(true);
+                    key = keyInfo.Key;
+                    var lastEmail = email;
+
+                    if (key == ConsoleKey.Backspace)
+                    {
+                        if (email.Length > 0)
+                        {
+                            email = email.Remove(email.Length - 1);
+                        }
+                    }
+                    else if (key != ConsoleKey.LeftArrow && key != ConsoleKey.RightArrow && key != ConsoleKey.UpArrow &&
+                             key != ConsoleKey.DownArrow)
+                    {
+                        email += keyInfo.KeyChar;
+                    }
+
+                    email = RemoveEscapeCharacter(email);
+
+                    try
+                    {
+                        var unused = new MailAddress(email);
+                        isValid = true;
+                    }
+                    catch (Exception)
+                    {
+                        isValid = false;
+                    }
+
+                    if (lastEmail == email) continue;
+                    ClearLine(currentLine);
+                    CursorTop(currentLine);
+                    CursorLeft(0);
+                    Write(value, color);
+                    Write(email, isValid ? validColor : invalidColor);
+                } while (key != ConsoleKey.Enter);
+
+                BreakLine();
+
+                if (isValid) return email;
+                var exit = BoolQuestion("Email is invalid. Do you want to exit?", color: color);
+                if (exit)
+                {
+                    return null;
+                }
+
+                ClearLine(currentLine + 1);
+                CursorTop(currentLine);
+            }
+        }
+
+        public static bool OptVerification(string toEmail, string fromEmail, string appPassword,
+            Color? color = null, string? customMessage = null)
+        {
+            color ??= GetColor();
+
+            // use ~verifyCode~ as placeholder for the verification code
+            customMessage ??= "<p> This email is automatically generated. Please do not reply to this email. </p> <p> If you haven't requested this email, please ignore it. </p> <br> <p> Your verification code is: <p> <div style='background: ghostwhite; font-size: 20px; padding: 10px; border: 1px solid lightgray; margin: 10px;'>~verifyCode~</div>";
+
+            var verificationCode = new string(Enumerable.Repeat("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", 10)
+                .Select(s => s[new Random().Next(s.Length)]).ToArray());
+
+            var message = new MailMessage
+            (
+                fromEmail,
+                toEmail,
+                "Verification Code",
+                customMessage.Replace("~verifyCode~", verificationCode)
+            );
+
+            message.IsBodyHtml = true;
+
+            var client = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                Credentials = new NetworkCredential(fromEmail, appPassword)
+            };
+            client.Send(message);
+
+            var verificationCodeInput = ReadLine("Enter verification code: ", color);
+            return verificationCode == verificationCodeInput;
         }
     }
 }

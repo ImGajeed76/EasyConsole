@@ -1,0 +1,5 @@
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net4.6\ImGajeedsEasyConsole.csproj.AssemblyReference.cache
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net4.6\ImGajeedsEasyConsole.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net4.6\ImGajeedsEasyConsole.AssemblyInfoInputs.cache
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net4.6\ImGajeedsEasyConsole.AssemblyInfo.cs
+C:\Users\76img\RiderProjects\ImGajeedsEasyConsole\ImGajeedsEasyConsole\obj\Release\net4.6\ImGajeedsEasyConsole.csproj.CoreCompileInputs.cache
