@@ -12,7 +12,7 @@
         <RepositoryUrl>https://github.com/ImGajeed76/EasyConsole</RepositoryUrl>
         <PackageLicenseUrl>https://github.com/ImGajeed76/EasyConsole/blob/master/ImGajeedsEasyConsole/license.txt</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageVersion>1.0.2</PackageVersion>
+        <PackageVersion>1.0.3</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
