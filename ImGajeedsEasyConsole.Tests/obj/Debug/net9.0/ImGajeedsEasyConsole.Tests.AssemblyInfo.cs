@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ImGajeedsEasyConsole.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6f0fc5de08dcfbd783a3258e5b34a3ebecf778b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2eefc93e5d401d2f6c676d20a6a7270338e0c84b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ImGajeedsEasyConsole.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ImGajeedsEasyConsole.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

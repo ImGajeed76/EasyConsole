@@ -8,7 +8,7 @@
 
         <!-- Package Metadata -->
         <PackageId>ImGajeedsEasyConsole</PackageId>
-        <PackageVersion>1.1.0</PackageVersion>
+        <PackageVersion>1.1.1</PackageVersion>
         <Title>EasyConsole</Title>
         <Authors>ImGajeed</Authors>
         <Description>A package that allows developers to make fast and easy console apps with enhanced UI components, interactive forms, and colorful output.</Description>

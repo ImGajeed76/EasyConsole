@@ -451,7 +451,7 @@
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "ImGajeedsEasyConsole/1.0.3": {
+      "ImGajeedsEasyConsole/1.1.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -1042,7 +1042,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "ImGajeedsEasyConsole/1.0.3": {
+    "ImGajeedsEasyConsole/1.1.1": {
       "type": "project",
       "path": "../ImGajeedsEasyConsole/ImGajeedsEasyConsole.csproj",
       "msbuildProject": "../ImGajeedsEasyConsole/ImGajeedsEasyConsole.csproj"
@@ -1050,7 +1050,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "ImGajeedsEasyConsole >= 1.0.3",
+      "ImGajeedsEasyConsole >= 1.1.1",
       "Microsoft.NET.Test.Sdk >= 17.11.1",
       "coverlet.collector >= 6.0.2",
       "xunit >= 2.9.2",
