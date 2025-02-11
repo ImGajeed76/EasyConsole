@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImGajeedsEasyConsole", "ImGajeedsEasyConsole\ImGajeedsEasyConsole.csproj", "{76AA80D9-8146-420D-A6A0-AA8801BDA1E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImGajeedsEasyConsole.Tests", "ImGajeedsEasyConsole.Tests\ImGajeedsEasyConsole.Tests.csproj", "{F64A1926-4119-44EA-812B-4670DE788746}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{76AA80D9-8146-420D-A6A0-AA8801BDA1E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76AA80D9-8146-420D-A6A0-AA8801BDA1E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76AA80D9-8146-420D-A6A0-AA8801BDA1E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F64A1926-4119-44EA-812B-4670DE788746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64A1926-4119-44EA-812B-4670DE788746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64A1926-4119-44EA-812B-4670DE788746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64A1926-4119-44EA-812B-4670DE788746}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

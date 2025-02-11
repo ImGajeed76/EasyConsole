@@ -5,18 +5,36 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <!-- Package Metadata -->
+        <PackageId>ImGajeedsEasyConsole</PackageId>
+        <PackageVersion>1.1.0</PackageVersion>
         <Title>EasyConsole</Title>
         <Authors>ImGajeed</Authors>
-        <Description>A package, that allows developers to make fast and easy console apps.</Description>
+        <Description>A package that allows developers to make fast and easy console apps with enhanced UI components, interactive forms, and colorful output.</Description>
+
+        <!-- Source Control -->
         <PackageProjectUrl>https://github.com/ImGajeed76/EasyConsole</PackageProjectUrl>
         <RepositoryUrl>https://github.com/ImGajeed76/EasyConsole</RepositoryUrl>
-        <PackageLicenseUrl>https://github.com/ImGajeed76/EasyConsole/blob/master/ImGajeedsEasyConsole/license.txt</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageVersion>1.0.3</PackageVersion>
+
+        <!-- License -->
+        <PackageLicenseFile>license.txt</PackageLicenseFile>
+
+        <!-- README -->
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <!-- Tags -->
+        <PackageTags>console;ui;forms;interactive;dotnet</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Konscious.Security.Cryptography.Argon2" Version="1.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
+        <None Include="license.txt" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>

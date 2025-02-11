@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\76img\\RiderProjects\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole.csproj": {}
+    "/home/imgajeed/RiderProjects/EasyConsole/ImGajeedsEasyConsole/ImGajeedsEasyConsole.csproj": {}
   },
   "projects": {
-    "C:\\Users\\76img\\RiderProjects\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole.csproj": {
-      "version": "1.0.2",
+    "/home/imgajeed/RiderProjects/EasyConsole/ImGajeedsEasyConsole/ImGajeedsEasyConsole.csproj": {
+      "version": "1.1.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\76img\\RiderProjects\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole.csproj",
+        "projectUniqueName": "/home/imgajeed/RiderProjects/EasyConsole/ImGajeedsEasyConsole/ImGajeedsEasyConsole.csproj",
         "projectName": "ImGajeedsEasyConsole",
-        "projectPath": "C:\\Users\\76img\\RiderProjects\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole.csproj",
-        "packagesPath": "C:\\Users\\76img\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\76img\\RiderProjects\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole\\obj\\",
+        "projectPath": "/home/imgajeed/RiderProjects/EasyConsole/ImGajeedsEasyConsole/ImGajeedsEasyConsole.csproj",
+        "packagesPath": "/home/imgajeed/.nuget/packages/",
+        "outputPath": "/home/imgajeed/RiderProjects/EasyConsole/ImGajeedsEasyConsole/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\76img\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/imgajeed/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -32,7 +32,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net6.0": {
@@ -41,12 +47,6 @@
             "Konscious.Security.Cryptography.Argon2": {
               "target": "Package",
               "version": "[1.3.0, )"
-            },
-            "Microsoft.NETFramework.ReferenceAssemblies": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.0.2, )",
-              "autoReferenced": true
             }
           },
           "imports": [
@@ -55,16 +55,27 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/imgajeed/.dotnet/sdk/9.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

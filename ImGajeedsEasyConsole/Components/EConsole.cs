@@ -8,41 +8,41 @@ using Konscious.Security.Cryptography;
 
 namespace ImGajeedsEasyConsole.Components
 {
-    public static class Console
+    public static class EConsole
     {
         public static int CursorTop()
         {
-            return System.Console.CursorTop;
+            return Console.CursorTop;
         }
 
         public static void CursorTop(int n)
         {
-            System.Console.CursorTop = n;
+            Console.CursorTop = n;
         }
 
         public static int CursorLeft()
         {
-            return System.Console.CursorLeft;
+            return Console.CursorLeft;
         }
 
         public static void CursorLeft(int value)
         {
-            System.Console.CursorLeft = value;
+            Console.CursorLeft = value;
         }
 
         public static int BufferWidth()
         {
-            return System.Console.BufferWidth;
+            return Console.BufferWidth;
         }
 
         public static int BufferHeight()
         {
-            return System.Console.BufferHeight;
+            return Console.BufferHeight;
         }
 
         public static void Clear()
         {
-            System.Console.Clear();
+            Console.Clear();
         }
 
         public static void ClearLine(int line)
@@ -72,32 +72,32 @@ namespace ImGajeedsEasyConsole.Components
         {
             color ??= GetColor();
 
-            System.Console.ForegroundColor = color.GetForeground();
-            System.Console.BackgroundColor = color.GetBackground();
+            Console.ForegroundColor = color.GetForeground();
+            Console.BackgroundColor = color.GetBackground();
         }
 
         public static Color GetColor()
         {
-            return new Color(System.Console.ForegroundColor, System.Console.BackgroundColor);
+            return new Color(Console.ForegroundColor, Console.BackgroundColor);
         }
 
         public static void ResetColor()
         {
-            System.Console.ResetColor();
+            Console.ResetColor();
         }
 
         public static void Write(object value, Color? color = null)
         {
             var lastColor = GetColor();
             SetColor(color);
-            System.Console.Write(value);
+            Console.Write(value);
             SetColor(lastColor);
         }
 
         public static void WriteLine(object value, Color? color = null)
         {
             Write(value, color);
-            System.Console.WriteLine();
+            Console.WriteLine();
         }
 
         public static void BreakLine()
@@ -107,7 +107,7 @@ namespace ImGajeedsEasyConsole.Components
 
         public static string? ReadLine()
         {
-            return System.Console.ReadLine();
+            return Console.ReadLine();
         }
 
         public static string? ReadLine(string value, Color? color = null)
@@ -118,7 +118,7 @@ namespace ImGajeedsEasyConsole.Components
 
         public static ConsoleKeyInfo ReadKey(bool intercept = false)
         {
-            return System.Console.ReadKey(intercept: intercept);
+            return Console.ReadKey(intercept: intercept);
         }
 
         private static byte[] CreateSalt()

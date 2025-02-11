@@ -1,13 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "um1CVdFn87txPE24ByJ1UmguSDvFK2sue0qVDQ2UFJd50xN5gGIvKJ4m7+6Y+6hyw3cC3CRm35LkodeAF/xJaA==",
+  "dgSpecHash": "DnCNXI0p7hs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\76img\\RiderProjects\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole\\ImGajeedsEasyConsole.csproj",
+  "projectFilePath": "/home/imgajeed/RiderProjects/EasyConsole/ImGajeedsEasyConsole/ImGajeedsEasyConsole.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\76img\\.nuget\\packages\\konscious.security.cryptography.argon2\\1.3.0\\konscious.security.cryptography.argon2.1.3.0.nupkg.sha512",
-    "C:\\Users\\76img\\.nuget\\packages\\konscious.security.cryptography.blake2\\1.1.0\\konscious.security.cryptography.blake2.1.1.0.nupkg.sha512",
-    "C:\\Users\\76img\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
-    "C:\\Users\\76img\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512"
+    "/home/imgajeed/.nuget/packages/konscious.security.cryptography.argon2/1.3.0/konscious.security.cryptography.argon2.1.3.0.nupkg.sha512",
+    "/home/imgajeed/.nuget/packages/konscious.security.cryptography.blake2/1.1.0/konscious.security.cryptography.blake2.1.1.0.nupkg.sha512",
+    "/home/imgajeed/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
+    "/home/imgajeed/.nuget/packages/microsoft.netcore.app.ref/6.0.36/microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "/home/imgajeed/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.36/microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512"
   ],
   "logs": []
 }

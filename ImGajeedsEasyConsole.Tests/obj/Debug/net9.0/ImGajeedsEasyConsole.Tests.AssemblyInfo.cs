@@ -10,16 +10,13 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("ImGajeed")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("ImGajeedsEasyConsole.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyDescriptionAttribute(("A package that allows developers to make fast and easy console apps with enhanced" +
-    " UI components, interactive forms, and colorful output."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6f0fc5de08dcfbd783a3258e5b34a3ebecf778b")]
-[assembly: System.Reflection.AssemblyProductAttribute("ImGajeedsEasyConsole")]
-[assembly: System.Reflection.AssemblyTitleAttribute("ImGajeedsEasyConsole")]
+[assembly: System.Reflection.AssemblyProductAttribute("ImGajeedsEasyConsole.Tests")]
+[assembly: System.Reflection.AssemblyTitleAttribute("ImGajeedsEasyConsole.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/ImGajeed76/EasyConsole")]
 
 // Von der MSBuild WriteCodeFragment-Klasse generiert.
 

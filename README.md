@@ -1,303 +1,198 @@
-# EasyConsole
+# 🎮 EasyConsole
 
-### Project on NuGet:
-[ImGajeedsEasyConsole](https://www.nuget.org/packages/ImGajeedsEasyConsole)
+Make your .NET console applications beautiful and interactive with EasyConsole! This library provides an enhanced set of console UI components and utilities.
 
-### ToDo:
+[![NuGet](https://img.shields.io/nuget/v/ImGajeedsEasyConsole.svg)](https://www.nuget.org/packages/ImGajeedsEasyConsole)
 
+## ✨ Features
+
+- 🎨 Colorful console output
+- 🔐 Secure password input
+- ✅ Interactive yes/no prompts
+- 📝 Multi-field forms
+- 📋 Option selection menus
+- 📧 Email validation and verification
+- 🎯 Cursor control and positioning
+
+## 🚀 Getting Started
+
+### Installation
+
+```bash
+dotnet add package ImGajeedsEasyConsole
 ```
-- implement argon2 hashing for SecureString (Does not work yet)
-- implement asciit text
-```
 
-## Examples:
-
-#### "Hello World" in color:
+### Quick Start
 
 ```csharp
-Console.WriteLine("Hello World", new Color(ConsoleColor.Green));
+using ImGajeedsEasyConsole.Components;
+
+EConsole.WriteLine("Hello World", new Color(ConsoleColor.Green));
 ```
 
-#### Password input:
+## 📚 Examples
+
+### 🎨 Colored Text
 
 ```csharp
-var password = Console.ReadPassword("Password: ");
+// Single line with color
+EConsole.WriteLine("Success!", new Color(ConsoleColor.Green));
+
+// Set color for multiple lines
+EConsole.SetColor(new Color(ConsoleColor.Blue));
+EConsole.WriteLine("This text is blue");
+EConsole.WriteLine("This one too!");
 ```
 
-#### Yes / No Question:
+### 🔐 Password Input
 
 ```csharp
-var answer = Console.BoolQuestion("Would you like to continue?");
-Console.WriteLine(answer);
+var password = EConsole.ReadPassword("Enter password: ");
 ```
 
-#### Object Selection:
+### ✅ Yes/No Questions
 
 ```csharp
-var options = new Options(new[]
-{
-    "Option 1",
-    "Option 2",
-    "Option 3"
-});
-var index = Console.SelectOption(options);
-Console.WriteLine(index);
+var answer = EConsole.BoolQuestion("Would you like to continue?");
 ```
 
-#### Form:
+### 📋 Option Selection
 
 ```csharp
-var lines = new[]
-{
-    "Firstname",
-    "Lastname"
+var options = new[] {
+    "Start Game",
+    "Settings",
+    "Exit"
 };
-var values = Console.Form(lines);
-     
-Console.WriteLine(values[0]);
-Console.WriteLine(values[1]);
+var selectedIndex = EConsole.SelectOption(options);
 ```
 
-#### Set Console Color:
+### 📝 Interactive Forms
 
 ```csharp
-Console.SetColor(new Color(ConsoleColor.Blue));
-Console.WriteLine("This text should be blue");
-Console.WriteLine("And this one too");
-```
-
-## Documentation:
-
-#### Color:
-
-In the Color class you can define a fore- and or background color.  
-(Pretty self explaining)
-
-```csharp
-var color = new Color(ConsoleColor.DarkBlue, ConsoleColor.DarkGray);
-```
-
-Note: You can use this Color in pretty much every other Console function.
-
-#### Write:
-
-With the Write function you can write text to the console and color it. This command will not make a new line in the
-console!
-
-```csharp
-Console.Write("Text", color);
-```
-
-#### WriteLine:
-
-This function is exactly the same as Write, except it does make a new line after it.
-
-```csharp
-Console.Write("Text with new line", color)
-```
-
-#### ReadLine:
-
-This function is like the one in System.Console. But here you can ask for something too.
-
-```csharp
-var answer = Console.ReadLine();
-
-//or
-
-var answer = Console.ReadLine("Username: ", color);
-```
-
-#### ReadKey:
-
-This one is completly like the one in System.Console.
-
-```csharp
-var key = Console.ReadKey();
-```
-
-#### ReadPassword:
-
-With this function you can ask for a Password that is returned as SecureString.
-
-```csharp
-var pass = Console.ReadPassword();
-
-//or
-
-var pass = Console.ReadPassword("Password: ", color, passColor);
-```
-
-#### Yes / No Question (BoolQuestion):
-
-With this function you can ask a yes/no question with a default value.  
-(yes = true, no = false)
-
-```csharp
-var answer = Console.BoolQuestion("Would you like to continue?", def, color);
-```
-
-#### SelectOption:
-
-With this function you can select from a string[] of options. Returned will be the index of the array. To select a
-option, move with the arrow keys and press enter.
-
-```csharp
-var options = new[]
-{
-    "Option 1",
-    "Option 2",
-    "Option 3"
+var fields = new[] {
+    "Username",
+    "Email",
+    "Location"
 };
-var index = Console.SelectOption(options);
-Console.WriteLine(index);
+var values = EConsole.Form(fields);
 ```
 
-#### Form:
+## 📖 API Reference
 
-With this function you can create a Form where users can input variables for multiple lines. To edit a field, select it
-with your arrow keys and and press enter. Now you can write.
+### Color Management 🎨
 
+#### `Color` Class
 ```csharp
-var lines = new[]
-{
-    "Firstname",
-    "Lastname"
-};
-var values = Console.Form(lines);
-     
-Console.WriteLine(values[0]);
-Console.WriteLine(values[1]);
+// Set foreground color only
+var color = new Color(ConsoleColor.Blue);
+
+// Set both foreground and background
+var color = new Color(ConsoleColor.White, ConsoleColor.DarkBlue);
 ```
 
-#### AwaitAnyKey:
-
-This function waits for any key to press. You can enable or disable the message in the params.
-
+#### Color Control
 ```csharp
-Console.AwaitAnyKey();
+// Get current colors
+var currentColor = EConsole.GetColor();
+
+// Set new colors
+EConsole.SetColor(new Color(ConsoleColor.Green));
+
+// Reset to default
+EConsole.ResetColor();
 ```
 
-#### AwaitEnter:
+### Text Output 📝
 
-This function is like the AwaitAnyKey function, but it only waits for the enter key.
-
+#### Write Methods
 ```csharp
-Console.AwaitEnter();
+// Write without line break
+EConsole.Write("Loading...", new Color(ConsoleColor.Yellow));
+
+// Write with line break
+EConsole.WriteLine("Complete!", new Color(ConsoleColor.Green));
 ```
 
-#### Clear:
+### User Input ⌨️
 
-With this function you can clear the whole console.
-
+#### Basic Input
 ```csharp
-Console.WriteLine("Hello");
-Console.WriteLine("World");
-Console.Clear();
+// Simple input
+var name = EConsole.ReadLine("Enter your name: ");
+
+// Single key input
+var key = EConsole.ReadKey();
 ```
 
-#### ClearLine:
-
-With this function you can clear a specific line.
-
+#### Special Input Types
 ```csharp
-Console.WriteLine("Hello");
-Console.WriteLine("World");
-Console.ClearLine(0);
+// Secure password input
+var password = EConsole.ReadPassword("Password: ");
+
+// Email input with validation
+var email = EConsole.ReadEmail("Email: ");
 ```
 
-#### OverwriteLine:
+### Screen Control 🖥️
 
-With this function you can overwrite any line in the console.
-
+#### Cursor Management
 ```csharp
-Console.WriteLine("Hello");
-Console.WriteLine("World");
-Console.OverwriteLine(0, "Overwritten");
+// Get/Set cursor position
+EConsole.CursorTop(0);
+var left = EConsole.CursorLeft();
+
+// Clear specific line
+EConsole.ClearLine(5);
+
+// Clear entire screen
+EConsole.Clear();
+
+// Overwrite line contents
+EConsole.OverwriteLine(3, "New content");
 ```
 
-#### ReadEmail:
+### Interactive Components 🎯
 
-Read an validate a email.
-
+#### Form Input
 ```csharp
-var email = Console.ReadEmail();
+var fields = new[] {"Name", "Email", "Phone"};
+var values = EConsole.Form(fields);
 ```
 
-#### IsValidEmail:
-
-Checks if the email is plausable.
-
+#### Option Selection
 ```csharp
-var isValid = Console.IsValidEmail(email);
+var options = new[] {"Option A", "Option B", "Option C"};
+var selected = EConsole.SelectOption(options);
 ```
 
-#### OptVerification:
+### Email Features 📧
 
-Sends a email verification code to a specific email and checks it in the console. For this you need a google email (fromEmail), where you have to create a appPassword for.
-
+#### Email Validation
 ```csharp
-var isValid = Console.OptVerification(email, fromEmail, appPassword);
+var isValid = EConsole.IsValidEmail("user@example.com");
 ```
 
-#### GetColor:
-
-With this function you can get the current console color.
-
+#### OTP Verification
 ```csharp
-var color = Console.GetColor();
+var verified = EConsole.OptVerification(
+    toEmail: "user@example.com",
+    fromEmail: "your-app@gmail.com",
+    appPassword: "your-google-app-password"
+);
 ```
 
-#### SetColor:
+## 🤝 Contributing
 
-With this function you can set the current console color.
+Contributions are welcome! Feel free to submit issues and pull requests.
 
-```csharp
-Console.SetColor(color);
-```
+## 📄 License
 
-#### CursorTop:
+This project is licensed under the MIT License - see the [license](https://github.com/ImGajeed76/EasyConsole/blob/master/ImGajeedsEasyConsole/license.txt) file for details.
 
-Get and set the CursorTop.
+## 📞 Contact
 
-```csharp
-Console.CursorTop(0);
-var top = Console.CursorTop();
-```
+Have questions? Contact me on Discord: `@ImGajeed76`
 
-#### CursorLeft:
-
-Like the CursorTop you can get and set its position.
-
-```csharp
-Console.CursorLeft(0);
-var left = Console.CursorLeft();
-```
-
-#### BufferWidth:
-
-Width this function you can get the BufferWidth.
-
-```csharp
-var width = Console.BufferWidth();
-```
-
-#### BufferWidth:
-
-Width this function you can get the BufferHeight.
-
-```csharp
-var height = Console.BufferHeight();
-```
-
-## License
-
-This project has a MIT License: [license](https://github.com/ImGajeed76/EasyConsole/blob/master/ImGajeedsEasyConsole/license.txt)
-
-## Contact
-
-If you have any question please write to me on discord because im not that often on github.
-
-```
-ImGajeed76#5617
-```
+---
+Made with ❤️ by ImGajeed
